@@ -35,20 +35,21 @@
     <p>Search thousands of jobs from top companies and start your career journey.</p>
     <a href="#" class="cta-btn">Get Started</a>
     <section class="job-posting">
-      <form class="search-form">
-        <div class="input-group">
-          <i class="fa-solid fa-briefcase"></i>
-         <input type="text" id="companyInput" placeholder="Job Title or Company" required />
-        </div>
-        <div class="input-group">
-          <i class="fa-solid fa-location-dot"></i>
-          <input type="text" placeholder="Location (e.g., Mumbai)" />
-        </div>
-        <button type="submit" class="search-btn">
-          <i class="fa-solid fa-magnifying-glass"></i> Search
-        </button>
-      </form>
-    </section>
+  <form class="search-form" onsubmit="return searchJob(event)">
+    <div class="input-group">
+      <i class="fa-solid fa-briefcase"></i>
+      <input type="text" id="companyInput" placeholder="Job Title or Company" required />
+    </div>
+    <div class="input-group">
+      <i class="fa-solid fa-location-dot"></i>
+      <input type="text" placeholder="Location (e.g., Mumbai)" />
+    </div>
+    <button type="submit" class="search-btn">
+      <i class="fa-solid fa-magnifying-glass"></i> Search
+    </button>
+  </form>
+</section>
+
   </section>
 
   <section class="features">
@@ -177,9 +178,12 @@
       </div>
     </div>
   </footer>
+<script src="search.js"></script>
 
 </body>
 </html>
 
 
 
+
+    
