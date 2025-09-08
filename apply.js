@@ -5,17 +5,24 @@ if (job) {
   document.getElementById("jobTitle").innerText = job;
 }
 
-
-document.getElementById("applicationForm").addEventListener("submit", function(event) {
+document.getElementById("applicationForm").addEventListener("submit", async function (event) {
   event.preventDefault();
 
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const phone = document.getElementById("phone").value;
-  const coverLetter = document.getElementById("coverLetter").value;
-  const resume = document.getElementById("resume").files[0];
+  const form = event.target;
+  const formData = new FormData(form);
 
-  alert(`✅ Application Submitted!\n\nJob: ${job}\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nResume: ${resume ? resume.name : "Not uploaded"}\nCover Letter: ${coverLetter}`);
+  try {
+    const response = await fetch('http://localhost:5000/submit-application', {
+      method: 'POST',
+      body: formData
+    });
 
-  document.getElementById("applicationForm").reset();
+    const result = await response.text();
+    alert(result);
+
+    form.reset();
+  } catch (error) {
+    console.error('Error:', error);
+    alert('❌ Something went wrong while submitting your application.');
+  }
 });

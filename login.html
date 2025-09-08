@@ -88,6 +88,11 @@
 
         const data = await res.text(); 
         alert(data);
+
+        // ✅ Redirect to dashboard after successful login
+        if (res.ok) {
+          window.location.href = "dashboard.html";
+        }
       });
     </script>
 
